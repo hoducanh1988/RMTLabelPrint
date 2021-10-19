@@ -1,0 +1,62 @@
+﻿<Window x:Class="RemoteUEILabelPrint.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RemoteUEILabelPrint"
+        mc:Ignorable="d"
+        Title="{Binding Login.appInfo}" Height="250" Width="600" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="BorderBrush" Value="{StaticResource colorBorder}"/>
+            <Setter Property="BorderThickness" Value="1,0,0,1"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Background" Value="{StaticResource colorDisable}"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="BorderBrush" Value="{StaticResource colorBorder}"/>
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+            <Setter Property="Margin" Value="220,0,0,0"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsEditable" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused"  Value="True">
+                    <Setter Property="Background" Value="{StaticResource colorFocused}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    
+    <StackPanel Margin="10,0,10,0">
+        <Label Content="{Binding Login.appName}">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Grid>
+            <Label FontSize="15" Content="Vui lòng chọn loại tem cần in:"/>
+            <ComboBox Padding="5,0,0,0" FontSize="15" FontWeight="SemiBold" VerticalContentAlignment="Center" ItemsSource="{Binding CollectionScripts}" Height="35" 
+                  Text="{Binding Login.scriptName}"/>
+        </Grid>
+       
+        <Button Click="Button_Click" Width="100" Height="35" Margin="0,10,0,0" FontSize="17" HorizontalAlignment="Left" Content="Next"/>
+    </StackPanel>
+    
+</Window>

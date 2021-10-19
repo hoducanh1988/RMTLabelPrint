@@ -1,0 +1,5 @@
+﻿<SettingModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <fileLayout>FinishGood.btw</fileLayout>
+  <printerName>Microsoft Print to PDF</printerName>
+  <Copies>2</Copies>
+</SettingModel>

@@ -1,0 +1,17 @@
+﻿<Application x:Class="RemoteUEILabelPrint.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RemoteUEILabelPrint"
+             StartupUri="LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <SolidColorBrush x:Key="colorBackGround" Color="#555555"/>
+            <SolidColorBrush x:Key="colorBorder" Color="#AAAAAA"/>
+            <SolidColorBrush x:Key="colorSelected" Color="#92ff8a"/>
+            <SolidColorBrush x:Key="colorFocused" Color="#fffccf"/>
+            <SolidColorBrush x:Key="colorDisable" Color="#d4d4d4"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

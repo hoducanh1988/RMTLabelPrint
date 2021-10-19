@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="RemoteUEILabelPrint.Views.InputComboboxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RemoteUEILabelPrint.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="500" Background="White">
+
+    <UserControl.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="BorderBrush" Value="{StaticResource colorBorder}"/>
+            <Setter Property="BorderThickness" Value="1,0,0,1"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Background" Value="{StaticResource colorDisable}"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
+            <Setter Property="BorderBrush" Value="{StaticResource colorBorder}"/>
+            <Setter Property="BorderThickness" Value="1,0,0,1"/>
+            <Setter Property="Margin" Value="200,0,0,0"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsEditable" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused"  Value="True">
+                    <Setter Property="Background" Value="{StaticResource colorFocused}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Label Content="{Binding variableName}"/>
+        <ComboBox ItemsSource="{Binding collectionData}" Text="{Binding defaultValue}"/>
+    </Grid>
+    
+</UserControl>

@@ -1,0 +1,92 @@
+using System;
+using System.Text;
+using System.Net.NetworkInformation;
+using System.Threading;
+using System.Text.RegularExpressions;
+using System.Linq;
+using System.Collections.Generic;
+using System.IO;
+
+namespace REMOTE {
+
+    public class UEI {
+
+	[STAThread]
+	static void Main() { }
+	
+		//GetPartName(!custom_part_number,CustomPartName.txt)
+		public string GetPartName(string custom_part_number, string file_custom_part_name){
+			//check file exist
+			string file = AppDomain.CurrentDomain.BaseDirectory + "References\\" + file_custom_part_name;
+			if (File.Exists(file) == false) return null;
+			
+			//read content
+			string[] buffer = File.ReadAllLines(file);
+			if(buffer == null || buffer.Length == 0) return null;
+			
+			//get part name
+			string part_name = "";
+			for(int i=0;i<buffer.Length;i++){
+				string s = buffer[i];
+				if (s.Contains(custom_part_number) == true){
+					part_name = s.Split(new string[] { "::" }, StringSplitOptions.None)[1];
+					break;
+				}
+			}
+			return part_name;
+		}
+		
+		
+		//GetBoxEndLot(!quantity_per_box,!quantity_per_lot)
+		public string GetBoxEndLot(string quantity_per_box, string quantity_per_lot){
+			int d = int.Parse(quantity_per_box);
+			int x = int.Parse(quantity_per_lot);
+			int r = (int)Math.Ceiling(x*1.0/d*1.0);
+			return r.ToString();
+		}
+		
+		//GetIndex(!box_start_print,!box_end_print)
+		public string GetIndex(string box_start_print, string box_end_print) {
+			string s = int.Parse(box_start_print).ToString() + " ~ " + int.Parse(box_end_print).ToString();
+			return s;
+		}
+		
+		//GetRemark()
+		public string GetRemark() {
+			return DateTime.Now.ToString("ddMMyyyy");
+		}
+		
+		//GetBox(!job_lot,!print_index)
+		public string GetBox(string job_lot, string print_index) {
+			return job_lot + print_index.PadLeft(4, '0');
+		}
+		
+		//GetReprint(!print_index,!box_end_lot)
+		public string GetReprint(string print_index, string box_end_lot) {
+			return print_index.PadLeft(4, '0') + "/" + box_end_lot.PadLeft(4, '0');
+		}
+		
+		//CartonCalculate(!print_index,!box_end_lot)
+		public string CartonCalculate(string print_index, string box_end_lot){
+			return GetReprint(print_index, box_end_lot);
+		}
+		
+		
+		//GetEach(!quantity__per__lot,!quantity__per__box,!print__index)
+		public string GetEach(string quantity__per__lot, string quantity__per__box, string print__index){
+			int per_lot = int.Parse(quantity__per__lot);
+            int per_box = int.Parse(quantity__per__box);
+            int index = int.Parse(print__index);
+
+            int per_each = 0;
+            per_each = (index * per_box) <= per_lot ? per_box : per_lot - (index - 1) * per_box;
+			return per_each.ToString();
+		}
+		
+		//GetJobLot(!factory__code,!work__order)
+		public string GetJobLot(string factory__code, string work__order){
+			return factory__code + work__order;
+		}
+		
+    }
+}

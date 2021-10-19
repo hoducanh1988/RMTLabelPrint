@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteUEILabelPrint", "RemoteUEILabelPrint\RemoteUEILabelPrint.csproj", "{170661FA-93AE-43DF-9707-24BFE3053BE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{170661FA-93AE-43DF-9707-24BFE3053BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{170661FA-93AE-43DF-9707-24BFE3053BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{170661FA-93AE-43DF-9707-24BFE3053BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{170661FA-93AE-43DF-9707-24BFE3053BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28290AE0-8334-41B7-9960-97B1921A1597}
+	EndGlobalSection
+EndGlobal
